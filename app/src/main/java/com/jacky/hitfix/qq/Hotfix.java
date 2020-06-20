@@ -12,17 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hotfix {
-
-
     /**
      * 1、获取到当前应用的PathClassloader;
      * <p>
      * 2、反射获取到DexPathList属性对象pathList;
      * <p>
-     * 3、反射修改pathList的dexElements
+     * 3、反射修改 DexPathList 的 Element[]
      * 3.1、把补丁包patch.dex转化为Element[]  (patch)
-     * 3.2、获得pathList的dexElements属性（old）
-     * 3.3、patch+old合并，并反射赋值给pathList的dexElements
+     * 3.2、获得 DexPathList 的 dexElements 属性（old）
+     * 3.3、patch+old 合并，并反射赋值给 pathList 的 dexElements
      */
     public static void fix(Application application, String patch) {
         File file = new File(patch);
